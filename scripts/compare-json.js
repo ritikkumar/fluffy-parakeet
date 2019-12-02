@@ -5,9 +5,9 @@ async function callUrl(url) {
     return response.data
 }
 
-async function compare(text1, text2) {
-    const listUrl1 = text1.toString("utf-8").split("\n")
-    const listUrl2 = text2.toString("utf-8").split("\n")
+async function compare(fileText1, fileText2) {
+    const listUrl1 = fileText1.toString("utf-8").split("\n")
+    const listUrl2 = fileText2.toString("utf-8").split("\n")
     const lengthUrl = listUrl1.length > listUrl2.length ? listUrl1.length : listUrl2.length
     for (let i = 0; i < lengthUrl; i++) {
         const url1 = listUrl1[i]
