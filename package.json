@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Theodorus Jonathan Nugraha",
   "scripts": {
-    "compare": "node scripts/compare-json.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compare": "node scripts/main.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "chai": "^4.2.0",
     "mocha": "^6.2.2"
   }
 }
