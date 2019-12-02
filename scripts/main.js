@@ -1,8 +1,7 @@
-const compare = require("../scripts/compare-json.js");
+const compare = require("../scripts/compare-json.js")
+const fs = require('fs')
 
-compare("https://reqres.in/api/users/3", "https://reqres.in/api/users/1")
-compare("https://reqres.in/api/users/2", "https://reqres.in/api/users/2")
-compare("https://reqres.in/api/users?page=2", "https://reqres.in/api/users?page=2")
-compare("https://reqres.in/api/users?page=3", "https://reqres.in/api/users?page=1")
-compare("https://reqres.in/api/users?page=3", "https://reqres.in/api/users?page=2")
+const fileText1 = fs.readFileSync("./data/file.txt")
+const fileText2 = fs.readFileSync("./data/file2.txt")
 
+compare(fileText1, fileText2)

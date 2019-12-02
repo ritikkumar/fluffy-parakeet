@@ -5,15 +5,26 @@ async function callUrl(url) {
     return response.data
 }
 
-async function compare(firstUrl, secondUrl) {
-    try {
-        let firstResp = await callUrl(firstUrl)
-        let secondResp = await callUrl(secondUrl)
-        console.log(firstUrl + (JSON.stringify(firstResp) == JSON.stringify(secondResp) ? "" : " not") + " equals " + secondUrl)
-        return JSON.stringify(firstResp) == JSON.stringify(secondResp)
-    } catch (e) {
-        console.log(e.message)
+async function compare(text1, text2) {
+    const listUrl1 = text1.toString("utf-8").split("\n")
+    const listUrl2 = text2.toString("utf-8").split("\n")
+    const lengthUrl = listUrl1.length > listUrl2.length ? listUrl1.length : listUrl2.length
+    for (let i = 0; i < lengthUrl; i++) {
+        const url1 = listUrl1[i]
+        const url2 = listUrl2[i]
+        const promise1 = callUrl(url1)
+        const promise2 = callUrl(url2)
+        const res = Promise.all([promise1, promise2]).then(res => {
+            const response1 = JSON.stringify(res[0].data)
+            const response2 = JSON.stringify(res[1].data)
+            console.log(url1 + (response1 == response2 ? "" : " not") + " equals " + url2)
+            return response1 == response2
+        }).catch((e) => {
+            console.log(e.message)
+            return "Invalid"
+        })
+        return res;
     }
 }
 
-module.exports = compare;
+module.exports = compare
