@@ -1,5 +1,5 @@
 # Comparator Library
-This project is created to give an example for comparator library and answer Gojek QA Test.
+This project is created to give an example for comparator library.
 Compare 2 (http/https) api response: Create a comparator library that will be used to compare 2 (http/https) api responses.  The input to your code should be two files with millions of http requests. Each file contains (http/https) apis separated by new line. 
 
 Must have [Important]
