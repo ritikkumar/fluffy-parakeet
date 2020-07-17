@@ -21,6 +21,3 @@ Print the output when responses are compared
 ### Running the tests
 1. Go to project's directory
 2. Run `npm test` in terminal
-
-### Author
-Theodorus Jonathan Nugraha
